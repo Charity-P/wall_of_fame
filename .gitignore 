@@ -1,0 +1,14 @@
+db.sqlite3
+*.db
+
+__pycache__/
+*.py[cod]
+
+venv/
+.env
+
+/media/
+
+
+*.idea/
+*.vscode/
