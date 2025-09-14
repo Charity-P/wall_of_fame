@@ -6,11 +6,10 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    photo = models.ImageField(upload_to='student_photos/')
+    photo = models.ImageField(upload_to='student_photos/', blank=True, null=True)
     full_name = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
-    password = models.CharField(max_length=128)
-    student_id = models.CharField(max_length=20, unique=True)
+    # email = models.EmailField(unique=True)
+    registration_number = models.CharField(max_length=20, unique=True)
     country = models.CharField(max_length=50)
     learning_track = models.CharField(max_length=200)
     linkedin = models.URLField(blank=False, null=False)
@@ -23,7 +22,12 @@ class Student(models.Model):
     #     super().save(*args, **kwargs)
 
     def __str__(self):
-        return f"{self.full_name} ({self.student_id})"
+        return f"{self.full_name} ({self.registration_number})"
 
-    # def __str__(self):
-    #     return self.user.get_full_name()
+
+# class Visitor(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     first_name = models.CharField(max_length=100)
+#     surname = models.CharField(max_length=100)
+#     partner = models.BooleanField()
+#     organisation_name = models.CharField(max_length=250)

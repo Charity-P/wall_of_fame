@@ -10,18 +10,3 @@ class Migration(migrations.Migration):
     dependencies = [
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='Student',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('photo', models.ImageField(upload_to='student_photos/')),
-                ('full_name', models.CharField(max_length=100)),
-                ('email', models.EmailField(max_length=254, unique=True)),
-                ('country', models.CharField(max_length=50)),
-                ('learning_track', models.CharField(max_length=200)),
-                ('linkedin', models.URLField()),
-                ('github', models.URLField(blank=True, null=True)),
-            ],
-        ),
-    ]
